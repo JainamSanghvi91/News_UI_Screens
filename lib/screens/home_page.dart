@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:news/dummy_news_data.dart';
-import 'package:news/screens/appdrawer.dart';
+import 'package:news/screens/app_drawer.dart';
 import 'package:news/widgets/news_list.dart';
 import 'package:news/utils/size_config.dart';
-
 import '../utils/size_config.dart';
 
-class HomePage extends StatelessWidget {
+class HomePageScreen extends StatelessWidget {
   static final String routename = "/home-page-route";
   GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: _scaffold,
-        drawer: drawer(),
-        body: LayoutBuilder(builder: (context, constraints) {
+      key: _scaffold,
+      drawer: AppDrawer(),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
           SizeConfig().init(constraints);
           var maxH = SizeConfig.heightMultiplier * 100;
           var maxW = SizeConfig.widthMultiplier * 100;
@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
                 flex: 24,
                 child: ListView.builder(
                   itemBuilder: (ctx, i) {
-                    return NewsList(
+                    return NewsListCard(
                       index: i,
                     );
                   },
@@ -60,6 +60,8 @@ class HomePage extends StatelessWidget {
               )
             ],
           );
-        }));
+        },
+      ),
+    );
   }
 }

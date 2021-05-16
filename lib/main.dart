@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:news/screens/homepage.dart';
-import 'package:news/screens/userprofile.dart';
+import 'package:news/screens/home_page.dart';
+import 'package:news/screens/user_profile.dart';
 import 'package:news/screens/video.dart';
 
 void main() {
@@ -14,15 +14,14 @@ class MyApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return MaterialApp(
-      title: 'News 24',
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: HomePageScreen(),
       routes: {
-        HomePage.routename: (ctx) => HomePage(),
-        UserProfile.routename: (ctx) => UserProfile(),
+        HomePageScreen.routename: (ctx) => HomePageScreen(),
+        UserProfileScreen.routename: (ctx) => UserProfileScreen(),
         VideoPage.routename: (ctx) => VideoPage(),
       },
     );

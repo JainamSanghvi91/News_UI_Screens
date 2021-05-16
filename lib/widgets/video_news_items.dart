@@ -27,11 +27,10 @@ class VideoNewsItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(3 * maxh / 672),
               ),
-              // padding: EdgeInsets.only(top:2,bottom: 2,right: 2),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(3 * maxh / 672),
                 child: Image.asset(
-                  Dummy_data[index].url,
+                  Dummy_data[index].image,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -47,7 +46,7 @@ class VideoNewsItem extends StatelessWidget {
                   Expanded(
                     flex: 3,
                     child: Text(
-                      Dummy_data[index].title,
+                      Dummy_data[index].headline,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -104,7 +103,6 @@ class VideoNewsItem extends StatelessWidget {
               ),
             ),
           )
-          // Text(DUMMY_NEWS[index].title)
         ],
       ),
     );

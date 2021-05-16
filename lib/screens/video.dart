@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:news/dummy_news_data.dart';
-import 'package:news/screens/appdrawer.dart';
+import 'package:news/screens/app_drawer.dart';
 import 'package:news/widgets/video_news_items.dart';
 
 import '../utils/size_config.dart';
@@ -15,11 +15,10 @@ class VideoPage extends StatelessWidget {
 
     return Scaffold(
       key: _scaffoldState,
-      drawer: drawer(),
+      drawer: AppDrawer(),
       body: LayoutBuilder(builder: (context, constraints) {
         var maxh = SizeConfig.heightMultiplier * 100;
         var maxw = SizeConfig.widthMultiplier * 100;
-        print("video ${maxh} ${maxw}");
         return Column(
           children: [
             Expanded(

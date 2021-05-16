@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:news/screens/homepage.dart';
-import 'package:news/screens/userprofile.dart';
+import 'package:news/screens/home_page.dart';
+import 'package:news/screens/user_profile.dart';
 import 'package:news/screens/video.dart';
 
 import '../utils/size_config.dart';
 
-class drawer extends StatelessWidget {
+class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // bool isauth = false;
@@ -32,7 +32,7 @@ class drawer extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context)
-                        .pushReplacementNamed(HomePage.routename);
+                        .pushReplacementNamed(HomePageScreen.routename);
                   },
                   child: Container(
                     margin: EdgeInsets.symmetric(
@@ -73,7 +73,7 @@ class drawer extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).pushNamed(
-                      UserProfile.routename,
+                      UserProfileScreen.routename,
                     );
                   },
                   child: Container(

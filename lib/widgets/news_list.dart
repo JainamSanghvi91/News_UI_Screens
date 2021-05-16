@@ -2,11 +2,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:news/dummy_news_data.dart';
 import 'package:news/utils/size_config.dart';
-
 import '../dummy_news_data.dart';
 
-class NewsList extends StatelessWidget {
-  NewsList({this.index});
+class NewsListCard extends StatelessWidget {
+  NewsListCard({this.index});
   final int index;
   @override
   Widget build(BuildContext context) {
@@ -36,7 +35,7 @@ class NewsList extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.asset(
-                            Dummy_data[index].url,
+                            Dummy_data[index].image,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -55,7 +54,7 @@ class NewsList extends StatelessWidget {
                           children: [
                             Flexible(
                               child: AutoSizeText(
-                                Dummy_data[index].title,
+                                Dummy_data[index].headline,
                                 maxLines: 2,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w700,

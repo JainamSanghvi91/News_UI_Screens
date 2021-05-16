@@ -4,20 +4,20 @@ import 'package:news/dummy_news_data.dart';
 import 'package:news/model/user.dart';
 import 'package:news/widgets/edit_profile.dart';
 import 'package:news/widgets/saved_profile.dart';
-import 'package:news/screens/appdrawer.dart';
+import 'package:news/screens/app_drawer.dart';
 
 import '../utils/size_config.dart';
 
-class UserProfile extends StatefulWidget {
+class UserProfileScreen extends StatefulWidget {
   static final String routename = "/user-profile";
 
   @override
-  _UserProfileState createState() => _UserProfileState();
+  _UserProfileScreenState createState() => _UserProfileScreenState();
 }
 
-class _UserProfileState extends State<UserProfile> {
+class _UserProfileScreenState extends State<UserProfileScreen> {
   User user;
-  GlobalKey<ScaffoldState> _scaffoldState = GlobalKey<ScaffoldState>();
+  GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
   final GlobalKey<FormState> _forrmkey = GlobalKey();
   bool _isedit = false;
   @override
@@ -39,7 +39,6 @@ class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     void _submit() {
-      print("insubmit ");
       if (_isedit) {
         if (!_forrmkey.currentState.validate()) {
           return;
@@ -57,8 +56,8 @@ class _UserProfileState extends State<UserProfile> {
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      key: _scaffoldState,
-      drawer: drawer(),
+      key: _scaffold,
+      drawer: AppDrawer(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           var maxH = SizeConfig.heightMultiplier * 100;
@@ -75,7 +74,7 @@ class _UserProfileState extends State<UserProfile> {
                     width: maxW,
                     color: Colors.teal[900],
                     child: InkWell(
-                      onTap: () => _scaffoldState.currentState.openDrawer(),
+                      onTap: () => _scaffold.currentState.openDrawer(),
                       child: Align(
                         alignment: Alignment.bottomLeft,
                         child: Container(
